@@ -1,19 +1,19 @@
 import App from 'next/app';
 import { ThemeProvider } from 'styled-components';
 
-const theme = {
-  colors: {
-    primary: '#0070f3'
-  }
-};
+import 'normalize.css';
+import { GlobalStyle, theme } from '../theme';
 
-export default class MyApp extends App {
+class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
     return (
       <ThemeProvider theme={theme}>
+        <GlobalStyle />
         <Component {...pageProps} />
       </ThemeProvider>
     );
   }
 }
+
+export default MyApp;
